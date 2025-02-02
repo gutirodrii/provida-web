@@ -5,18 +5,63 @@ import reconocimientos from "../assets/reconocimientos.json";
 import cargos from "../assets/cargos.json";
 import Card from "../components/atoms/Card.astro";
 const title = "Quiénes Somos";
+import image from "../assets/presidenta.webp";
 ---
 
 <BaseLayout title={title}>
   <!-- Texto de la Presidenta -->
-  <section class="container mx-auto px-4 mb-16">
-    <div class="flex flex-col md:flex-row gap-8 items-center">
+  <section class="container mx-auto px-4 mb-16 relative -top-10">
+    <div class="flex flex-col text-lg items-center text-gray-700 text-justify">
       <img
-        src="/images/presidenta.jpg"
+        src={image.src}
         alt="Foto de la Presidenta"
-        class="w-48 h-48 rounded-full object-cover shadow-md"
+        width="200"
+        height="200"
+        class="w-24 h-24 rounded-full object-cover shadow-md"
       />
-      <div class="text-lg text-gray-700">
+      <h2 class="text-lg font-bold">Angela de los Santos González</h2>
+      <h3 class="mb-4 text-sm italic">Presidenta Provida Sevilla ASDEVI</h3>
+      <p>
+        Es un honor dirigirme a ustedes en esta ocasión tan especial para
+        compartir una noticia importante. A partir de este momento, tengo el
+        privilegio de asumir la presidencia de nuestra querida asociación
+        benéfica. Agradezco profundamente la confianza depositada en mí para
+        liderar esta misión que compartimos: contribuir al bienestar de nuestra
+        comunidad y transformar vidas.
+      </p>
+      <p class="mt-4">
+        Quiero aprovechar esta oportunidad para expresar mi respeto y gratitud
+        hacia Rosa Ciriquián, quien, con su dedicación y compromiso, ha dejado
+        una huella significativa en nuestra organización. Mi intención es dar
+        continuidad a este gran legado, reforzando nuestro impacto y explorando
+        nuevas oportunidades para crecer juntos.
+      </p>
+      <p class="mt-4">
+        En los próximos meses, trabajaremos con determinación en nuestras
+        iniciativas actuales y buscaremos fortalecer la relación con nuestros
+        socios, voluntarios y colaboradores. Estoy convencida de que la clave
+        para lograr nuestros objetivos radica en la unión y el esfuerzo
+        conjunto.
+      </p>
+      <p class="mt-4">
+        Por ello, los invito a mantenerse activos y a seguir participando en las
+        actividades y proyectos que llevaremos a cabo. Su apoyo y compromiso son
+        fundamentales para que nuestra asociación siga siendo un referente de
+        solidaridad y esperanza.
+      </p>
+      <p class="mt-4">
+        Estaré encantada de escuchar sus ideas, sugerencias y comentarios, ya
+        que creo firmemente en la importancia de construir juntos un camino que
+        beneficie a quienes más lo necesitan.
+      </p>
+      <p class="mt-4">
+        Gracias por su confianza y por formar parte de esta gran familia. Estoy
+        emocionada por todo lo que lograremos juntos y espero con ilusión los
+        retos y aprendizajes que nos esperan.
+      </p>
+    </div>
+  </section>
+  <!-- <div class="text-lg text-gray-700">
         <p>
           Queridos amigos y colaboradores, <br />
           Soy [Nombre de la Presidenta], presidenta de la Asociación Provida. Desde
@@ -30,9 +75,7 @@ const title = "Quiénes Somos";
           promoción de una cultura de vida. Gracias por unirte a esta noble
           causa.
         </p>
-      </div>
-    </div>
-  </section>
+      </div> -->
 
   <!-- Lista de Aprobaciones y Reconocimientos -->
   <section class="container mx-auto px-4 mb-16">
@@ -63,7 +106,7 @@ const title = "Quiénes Somos";
   </section>
 
   <!-- Estatutos de la Asociación -->
-  <section class="container mx-auto px-4">
+  <section class="container mx-auto px-4 text-justify">
     <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">
       Estatutos de la Asociación
     </h2>
