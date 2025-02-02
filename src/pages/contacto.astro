@@ -1,0 +1,166 @@
+---
+import { getSecret } from "astro:env/server";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+const title = "Contacto";
+---
+
+<BaseLayout title={title}>
+  <main class="bg-gray-100 py-16">
+    <!-- Sección de Contacto -->
+    <section class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">
+        Contáctenos
+      </h1>
+
+      <!-- Formulario de Contacto -->
+      <div class="grid grid-rows-1 md:grid-rows-2 gap-12">
+        <div class="flex items-center justify-evenly">
+          <div>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Localización</h2>
+            <iframe
+              src="http://maps.google.es/maps?client=ubuntu&channel=cs&ie=UTF8&q=provida-sevilla&fb=1&gl=es&hq=provida&hnear=0xd126c1114be6291:0x34f018621cfe5648,Sevilla&cid=0,0,3674510220656433176&t=m&iwloc=A&ll=37.388057,-5.997406&spn=0.006295,0.006295&output=embed"
+              width="400"
+              height="350"
+              class="border-gray-300 rounded-lg shadow-md"></iframe>
+          </div>
+          <div class="flex items-center justify-center">
+            <form action="#" method="POST" class="space-y-6">
+              <div>
+                <label
+                  for="nombre"
+                  class="block text-sm font-medium text-gray-700">Nombre</label
+                >
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  required
+                  class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm"
+                />
+              </div>
+              <div>
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-gray-700"
+                  >Correo Electrónico</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm"
+                />
+              </div>
+              <div>
+                <label
+                  for="mensaje"
+                  class="block text-sm font-medium text-gray-700">Mensaje</label
+                >
+                <textarea
+                  id="mensaje"
+                  name="mensaje"
+                  rows="4"
+                  required
+                  class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500 sm:text-sm"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-96 bg-pink-500 text-white px-4 py-2 rounded-md font-semibold hover:bg-pink-600 transition"
+              >
+                Enviar Mensaje
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Información de Contacto -->
+        <div class="text-gray-700 flex flex-col items-center justify-center">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+            Información de Contacto
+          </h2>
+          <p class="mb-4">
+            <strong>Dirección:</strong> {getSecret('DIRECCION')}
+          </p>
+          <p class="mb-4"><strong>Teléfono:</strong>{getSecret('NUMERO_TELEFONO')}</p>
+          <p class="mb-4">
+            <strong>Correo Electrónico:</strong> {getSecret('EMAIL')}
+          </p>
+          <p class="mb-6">
+            <strong>Horario de Atención:</strong> Lunes a Viernes, 9:00 AM - 5:00
+            PM
+          </p>
+
+          <!-- Redes Sociales -->
+          <!-- <h3 class="text-xl font-semibold text-gray-800 mb-4">
+            Síguenos en Redes Sociales
+          </h3>
+          <div class="flex gap-4">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-pink-500 hover:text-pink-600 transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 2v20m0 0H9m3 0h3"></path>
+              </svg>
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-pink-500 hover:text-pink-600 transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 2v20m0 0H9m3 0h3"></path>
+              </svg>
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-pink-500 hover:text-pink-600 transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 2v20m0 0H9m3 0h3"></path>
+              </svg>
+            </a>
+          </div> -->
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,59 @@
+---
+import { getSecret } from "astro:env/server";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Donativos";
+---
+
+<BaseLayout title={title}>
+  <main class="bg-gray-100 py-16">
+    <!-- Sección Principal -->
+    <section class="container mx-auto px-4 mb-16">
+      <h1 class="text-4xl font-bold text-center text-pink-500 mb-8">
+        Apoya Nuestra Causa
+      </h1>
+      <p class="text-lg text-gray-700 text-center mb-8">
+        Para atender a las madres y bebés de nuestro centro de acogida
+        necesitamos vuestro donativo por pequeño que sea.
+      </p>
+      <p class="text-lg text-gray-700 text-center mb-8">
+        Puedes hacer tu aportación económica en las siguientes cuentas
+        corrientes:
+      </p>
+      <ul class="list-disc pl-6 text-gray-700 text-center mb-8">
+        <li>
+          <strong>TITULAR:</strong> {getSecret('TITULAR_CUENTA_BANCARIA')}
+        </li>
+        <li>{getSecret('NUMERO_CUENTA_BANCARIA')}</li>
+        <li>{getSecret('NUMERO_CUENTA_BANCARIA2')}</li>
+      </ul>
+      <p class="text-lg text-gray-700 text-center mb-8">
+        También puedes visitarnos y traer tu donativo en mano.
+      </p>
+      <p class="text-lg text-gray-700 text-center mb-8">
+        Como asociación declarada de utilidad pública, todos los donativos gozan
+        de los beneficios fiscales previstos por la Ley 49/2002 de Mecenazgo de
+        23 de diciembre.
+      </p>
+    </section>
+
+    <!-- Llamada a la Acción -->
+    <section class="container mx-auto px-4">
+      <div class="bg-white p-8 rounded-lg shadow-md text-center">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">
+          Haz tu Donativo Hoy
+        </h2>
+        <p class="text-gray-700 mb-6">
+          Tu contribución, por pequeña que sea, marca una gran diferencia en la
+          vida de madres y bebés.
+        </p>
+        <a
+          href="/contacto"
+          class="bg-pink-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-pink-600 transition inline-block"
+        >
+          Contáctenos para más información
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

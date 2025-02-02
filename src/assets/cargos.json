@@ -1,0 +1,39 @@
+[
+    {
+        "cargo": "Presidente",
+        "nombre": "Rosa Ciriquián Costi"
+    },
+    {
+        "cargo": "Vicepresidente",
+        "nombre": "Francisco Morón Bailén"
+    },
+    {
+        "cargo": "Secretaria",
+        "nombre": "Mª Carmen Parra Luna"
+    },
+    {
+        "cargo": "Tesorera",
+        "nombre": "Mª Dolores Garcés Álvarez de Perea"
+    },
+    {
+        "cargo": "1º Vocal",
+        "nombre": "Marta Trujillo Conde"
+    },
+    {
+        "cargo": "2º Vocal",
+        "nombre": "Delfina García de Alba"
+    },
+    {
+        "cargo": "3º Vocal",
+        "nombre": "Enrique Esquivias de la Cruz"
+    },
+    {
+        "cargo": "4º Vocal",
+        "nombre": "Analía Quijano Morenés"
+    },
+    {
+        "cargo": "5º Vocal",
+        "nombre": "Carmen Caro Samada"
+    }
+
+]

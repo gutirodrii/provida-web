@@ -1,0 +1,34 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import articulos from "../../assets/articulos.json";
+export const getStaticPaths = (() => {
+  const paths = articulos.map((articulo) => ({
+    params: { title: articulo.titulo },
+    props: { ...articulo },
+  }));
+  return paths;
+}) satisfies GetStaticPaths;
+import "../../styles/global.css";
+import { Image } from "astro:assets";
+---
+
+<BaseLayout title={Astro.params.title}>
+  <main class="flex flex-col items-center justify-center h-full">
+    <Image
+      src={Astro.props.imagen}
+      alt={Astro.props.titulo}
+      width={100}
+      height={100}
+      class={"h-64 w-full object-cover"}
+    />
+    <div class="py-16 px-16 md:px-32 lg:px-64">
+      <h1 class="text-3xl font-bold mb-4">
+        {Astro.props.titulo}
+      </h1>
+      <span class="text-lg">
+        {Astro.props.descripcion.split("\n").map((p) => <p>{p}</p>)}
+      </span>
+    </div>
+  </main>
+</BaseLayout>
