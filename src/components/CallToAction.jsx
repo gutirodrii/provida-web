@@ -17,7 +17,7 @@ const CallToAction = () => {
           </a>
           <a
             href="/donaciones"
-            className="bg-gray-700 text-white px-6 py-3 rounded-md font-semibold hover:bg-gray-800 transition"
+            className="bg-gray-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-gray-600 transition"
           >
             Haz una Donación
           </a>
