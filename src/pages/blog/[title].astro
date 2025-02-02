@@ -14,7 +14,7 @@ import { Image } from "astro:assets";
 ---
 
 <BaseLayout title={Astro.params.title}>
-  <main class="flex flex-col items-center justify-center h-full">
+  <div class="flex flex-col items-center justify-center h-full">
     <Image
       src={Astro.props.imagen}
       alt={Astro.props.titulo}
@@ -30,5 +30,5 @@ import { Image } from "astro:assets";
         {Astro.props.descripcion.split("\n").map((p) => <p>{p}</p>)}
       </span>
     </div>
-  </main>
+  </div>
 </BaseLayout>

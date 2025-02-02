@@ -2,7 +2,7 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <section className="relative h-96">
+    <section className="relative -top-16 h-96">
       <img
         src="/images/hero-bebe.webp"
         alt="Hero Image"

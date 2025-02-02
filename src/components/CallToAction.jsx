@@ -11,7 +11,7 @@ const CallToAction = () => {
         <div className="flex justify-center gap-4">
           <a
             href="/voluntarios"
-            className="bg-pink-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-pink-600 transition"
+            className="bg-blue-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-600 transition"
           >
             Sé Voluntario
           </a>
