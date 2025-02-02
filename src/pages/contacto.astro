@@ -7,14 +7,14 @@ const title = "Contacto";
 
 <BaseLayout title={title}>
   <!-- Sección de Contacto -->
-  <section class="container mx-auto px-4">
+  <section class="container mx-auto px-4 w-full">
     <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">
       Contáctenos
     </h1>
 
     <!-- Formulario de Contacto -->
-    <div class="grid grid-rows-1 md:grid-rows-2 gap-12">
-      <div class="flex flex-wrap items-center justify-evenly">
+    <div class="grid grid-rows-1 md:grid-rows-2 gap-12 w-full">
+      <div class="flex flex-wrap items-center justify-evenly w-full">
         <div>
           <h2 class="text-2xl font-semibold text-gray-800 mb-6">
             Localización
@@ -23,7 +23,7 @@ const title = "Contacto";
             src="https://maps.google.es/maps?client=ubuntu&channel=cs&ie=UTF8&q=provida-sevilla&fb=1&gl=es&hq=provida&hnear=0xd126c1114be6291:0x34f018621cfe5648,Sevilla&cid=0,0,3674510220656433176&t=m&iwloc=A&ll=37.388057,-5.997406&spn=0.006295,0.006295&output=embed"
             width="400"
             height="350"
-            class="border-gray-300 rounded-lg shadow-md"></iframe>
+            class="border-gray-300 rounded-lg shadow-md w-full"></iframe>
         </div>
         <div class="flex items-center justify-center">
           <form action="#" method="POST" class="space-y-6">
@@ -37,7 +37,7 @@ const title = "Contacto";
                 id="nombre"
                 name="nombre"
                 required
-                class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                class="mt-1 block w-full md:w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
@@ -49,7 +49,7 @@ const title = "Contacto";
                 id="email"
                 name="email"
                 required
-                class="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                class="mt-1 block w-full md:w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
               />
             </div>
             <div>
