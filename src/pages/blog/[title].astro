@@ -13,7 +13,7 @@ export const getStaticPaths = (() => {
 }) satisfies GetStaticPaths;
 
 const article = Astro.props;
-const { titulo, descripcion, imagen } = article;
+const { autor, titulo, descripcion, imagen } = article;
 
 // Format date if available, otherwise use a default date
 const publishDate = article.fecha || new Date().toISOString();
@@ -75,6 +75,7 @@ const structuredData = {
         {descripcion.split("\n").map((p) => (
           <p>{p}</p>
         ))}
+        <p>{autor}</p>
       </div>
     </div>
 
