@@ -18,7 +18,7 @@ const HeroSection = () => {
             mejores horizontes.
           </p>
           <a
-            href="/necesitas-ayuda"
+            href="/apoyo-embarazadas"
             className="bg-blue-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition"
           >
             ¿Necesitas ayuda?

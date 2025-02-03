@@ -1,0 +1,133 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Apoyo a Embarazadas";
+---
+
+<BaseLayout title={title}>
+  <!-- Hero Section -->
+  <section class="relative py-20 mb-16">
+    <div class="container mx-auto px-4">
+      <h1 class="text-5xl font-bold text-center text-blue-600 mb-8">
+        ¡NO ESTÁS SOLA!
+      </h1>
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-xl text-gray-700 mb-6 leading-relaxed">
+          Te ayudamos a resolver los problemas que se presenten por tu embarazo y
+          también a salir adelante en situaciones difíciles. Si no sabes o no puedes
+          hacerlo por ti misma, cuenta con nosotros.
+        </p>
+        <div class="mt-8">
+          <a href="#ayuda" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300 inline-block">
+            ¿Cómo podemos ayudarte?
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mensaje Principal -->
+  <section class="container mx-auto px-4 mb-20">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+      <div class="space-y-6">
+        <p class="text-lg text-gray-700 leading-relaxed">
+          Ofrecemos una ayuda positiva y práctica para la futura madre. Sea cual sea
+          tu nivel social, cultural, ideología política, religión o raza, no dudes
+          en llamarnos.
+        </p>
+        <p class="text-lg text-gray-700 leading-relaxed">
+          La vida es un proceso, todos empezamos en el vientre de nuestra madre. El
+          "no-nacido" tiene el mismo derecho a la vida que cualquier persona. Por
+          ser completamente indefenso, por el simple hecho de no tener voz, merece
+          una especial protección.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo Te Ayudamos -->
+  <section id="ayuda" class="py-20 mb-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+        ¿Cómo te ayudamos?
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {[
+          {
+            title: "Asesoramiento Personal",
+            description: "Con total confidencialidad podemos facilitarte orientación profesional personalizada, ayuda ante cualquier dificultad que se presente durante tu embarazo.",
+            icon: "👥"
+          },
+          {
+            title: "Apoyo Médico",
+            description: "Te ofrecemos atención por ginecólogos y pediatras que te asesorarán sobre el cuidado, alimentación e higiene de tu bebé.",
+            icon: "⚕️"
+          },
+          {
+            title: "Ayuda Psicológica",
+            description: "Profesionales médicos y psicólogos te brindarán ayuda afectiva y psicológica, incluyendo apoyo para superar el síndrome post-aborto.",
+            icon: "🧠"
+          },
+          {
+            title: "Apoyo Legal y Laboral",
+            description: "Estamos a tu disposición para prestarte apoyo legal, laboral o asistencia social si lo necesitas.",
+            icon: "⚖️"
+          },
+          {
+            title: "Formación para Madres",
+            description: "Cursos sobre embarazo, cuidados del bebé, autoestima, educación de los hijos y más.",
+            icon: "📚"
+          },
+          {
+            title: "Ayuda Material",
+            description: "Apoyo con alimentos, ropa, mobiliario infantil y todo lo necesario para el cuidado de tu bebé.",
+            icon: "🎀"
+          }
+        ].map(item => (
+          <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300">
+            <div class="text-4xl mb-4">{item.icon}</div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              {item.title}
+            </h3>
+            <p class="text-gray-600">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo Colaborar -->
+  <section class="container mx-auto px-4 mb-16">
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">
+      ¿Cómo colaborar?
+    </h2>
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="bg-white rounded-xl shadow-md p-8 hover:shadow-lg transition duration-300">
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Voluntariado</h3>
+        <p class="text-gray-600 mb-6">
+          Podrás sentir cada día la sonrisa de una nueva vida, de una madre
+          agradecida y la gratitud de sus familias.
+        </p>
+        <a href="/voluntarios" class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center">
+          Más información
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md p-8 hover:shadow-lg transition duration-300">
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Donativos</h3>
+        <p class="text-gray-600 mb-6">
+          Tu ayuda es fundamental para seguir apoyando a madres y bebés. Cada donativo,
+          por pequeño que sea, marca la diferencia.
+        </p>
+        <a href="/donaciones" class="bg-blue-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition duration-300 inline-block">
+          Hacer un donativo
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
