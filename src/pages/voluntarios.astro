@@ -2,121 +2,149 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "Voluntarios";
+
+const workGroups = [
+  {
+    title: "Centro de Acogida",
+    description: "Atención integral a madres y bebés.",
+    icon: "🏠"
+  },
+  {
+    title: "Ropero",
+    description: "Distribución de ropa para bebés.",
+    icon: "👕"
+  },
+  {
+    title: "Alimentos",
+    description: "Entrega de alimentos básicos.",
+    icon: "🥫"
+  },
+  {
+    title: "Mobiliario",
+    description: "Donación y distribución de mobiliario infantil.",
+    icon: "🛏️"
+  },
+  {
+    title: "Administración",
+    description: "Gestión y organización interna.",
+    icon: "📊"
+  }
+];
 ---
 
 <BaseLayout title={title}>
-  <!-- Sección Principal -->
-  <section class="container mx-auto px-4 mb-16">
-    <h1 class="text-4xl font-bold text-center text-blue-500 mb-8">
-      NUESTROS SOCIOS/AS Y VOLUNTARIOS/AS
-    </h1>
-    <p class="text-lg text-gray-700 text-center mb-8">
-      Actualmente, el potencial de socias/os y voluntariado que atiende las
-      labores en su mayoría señoras unas (40) y varios señores, gracias a su
-      compromiso y trabajo desarrollado de forma altruista, Pro-Vida sale
-      adelante.
-    </p>
-    <p class="text-lg text-gray-700 text-center mb-8">
-      Ellas han conseguido en estos últimos años salvar a miles de nuevas vidas,
-      a las cuales, se les da la oportunidad de ser protagonistas como una más,
-      de su propia vida al mismo tiempo que vienen a formar parte de los tiempos
-      venideros. Contribuyendo así a la riqueza de un país el día de mañana.
-    </p>
-    <p class="text-lg text-gray-700 text-center mb-8">
-      Ellas/os, saben que ayudando a las futuras madres ayudan también a que
-      nazca ese nuevo ser, esa vida que ya vive en su seno. Es una forma de
-      cuidar a la mujer para que ella misma, no contravenga las leyes de su
-      propia naturaleza. Son voluntarias/os que saben vencer, la pereza y la
-      desidia acudiendo sin desánimo a veces dejando de un lado sus propios
-      intereses personales para no desatender la labor que cada una tiene
-      encomendada.
-    </p>
+  <!-- Hero Section -->
+  <section class="relative py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-blue-600 mb-6">
+          Únete a Nuestra Labor Social
+        </h1>
+        <p class="text-xl text-gray-700 leading-relaxed mb-8">
+          Forma parte de nuestro equipo de voluntarios y ayuda a hacer la diferencia en la vida de madres y bebés.
+        </p>
+        <a
+          href="#como-colaborar"
+          class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300 inline-block"
+        >
+          ¿Cómo puedo ayudar?
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nuestra Comunidad -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+          Nuestra Comunidad de Voluntarios
+        </h2>
+        <div class="prose prose-lg mx-auto text-gray-600">
+          <p class="mb-6">
+            Actualmente, contamos con un equipo dedicado de más de 40 voluntarios que, gracias a su compromiso y trabajo altruista, hacen posible la labor de Pro-Vida.
+          </p>
+          <p class="mb-6">
+            A lo largo de los años, nuestros voluntarios han ayudado a miles de nuevas vidas, brindando oportunidades y esperanza para un futuro mejor.
+          </p>
+          <p>
+            Cada voluntario aporta su tiempo y dedicación, superando desafíos personales para cumplir con esta noble misión de apoyo a madres y bebés.
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Grupos de Trabajo -->
-  <section class="container mx-auto px-4 mb-16">
-    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">
-      Grupos de Trabajo
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-      <div class="bg-white p-6 rounded-lg shadow-md text-center">
-        <h3 class="text-xl font-semibold text-gray-800 mb-2">
-          Centro de Acogida
-        </h3>
-        <p class="text-gray-600">Atención integral a madres y bebés.</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-md text-center">
-        <h3 class="text-xl font-semibold text-gray-800 mb-2">Ropero</h3>
-        <p class="text-gray-600">Distribución de ropa para bebés.</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-md text-center">
-        <h3 class="text-xl font-semibold text-gray-800 mb-2">Alimentos</h3>
-        <p class="text-gray-600">Entrega de alimentos básicos.</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-md text-center">
-        <h3 class="text-xl font-semibold text-gray-800 mb-2">Mobiliario</h3>
-        <p class="text-gray-600">
-          Donación y distribución de mobiliario infantil.
-        </p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-md text-center">
-        <h3 class="text-xl font-semibold text-gray-800 mb-2">Administración</h3>
-        <p class="text-gray-600">Gestión y organización interna.</p>
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+        Áreas de Voluntariado
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {workGroups.map(group => (
+          <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300">
+            <div class="text-4xl mb-4">{group.icon}</div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              {group.title}
+            </h3>
+            <p class="text-gray-600">{group.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- Cómo Colaborar -->
-  <section class="container mx-auto px-4 mb-16">
-    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">
-      ¿Cómo colaborar?
-    </h2>
-    <div class="space-y-6">
-      <div>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Voluntariado</h3>
-        <p class="text-gray-700">
-          Podrás sentir cada día la sonrisa de una nueva vida, de una madre
-          agradecida y la gratitud de sus familias.
-        </p>
-        <a
-          href="/contacto"
-          class="bg-blue-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-600 transition inline-block mt-4"
-        >
-          Contáctanos
-        </a>
-      </div>
-      <div>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Empresas</h3>
-        <p class="text-gray-700">
-          Realizando convenios podemos facilitar la reinserción social de
-          nuestras madres. Si tenéis materiales de bebés agradeceremos que nos
-          los hagáis llegar siempre que estén de buen uso.
-        </p>
-      </div>
-      <div>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Donativos</h3>
-        <a
-          href="/donaciones"
-          class="bg-blue-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-600 transition inline-block mt-4"
-        >
-          Apoya Nuestra Causa
-        </a>
+  <section id="como-colaborar" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+        Formas de Colaborar
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="bg-gradient-to-b from-blue-50 to-white rounded-xl shadow-md p-8">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Voluntariado</h3>
+          <p class="text-gray-600 mb-6">
+            Únete a nuestro equipo y experimenta la gratificante labor de ayudar a madres y bebés.
+          </p>
+          <a
+            href="/contacto"
+            class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300 inline-block"
+          >
+            Quiero ser voluntario
+          </a>
+        </div>
+
+        <div class="bg-gradient-to-b from-blue-50 to-white rounded-xl shadow-md p-8">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Empresas</h3>
+          <p class="text-gray-600 mb-6">
+            Colabora con nosotros mediante convenios o donaciones de material infantil en buen estado.
+          </p>
+          <a
+            href="/contacto"
+            class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center"
+          >
+            Contactar
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="bg-gradient-to-b from-blue-50 to-white rounded-xl shadow-md p-8">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Hazte Socio</h3>
+          <p class="text-gray-600 mb-6">
+            Apoya nuestra causa de manera regular convirtiéndote en socio de Pro-Vida.
+          </p>
+          <a
+            href="/solicitud_de_socios.pdf"
+            target="_blank"
+            class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300 inline-block"
+          >
+            Solicitud de socio
+          </a>
+        </div>
       </div>
     </div>
-  </section>
-  <section class="container mx-auto px-4 mb-16">
-    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">
-      Solicitud de Socio
-    </h2>
-    <p class="text-lg text-gray-700">
-      Socios: Para hacerte socio puedes rellenar esta Solicitud.
-    </p>
-    <a
-      href="/solicitud_de_socios.pdf"
-      target="_blank"
-      class="bg-blue-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-600 transition inline-block mt-4"
-    >
-      Sé socio
-    </a>
   </section>
 </BaseLayout>
