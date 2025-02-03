@@ -1,23 +1,28 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import '../styles/global.css';
+import "../styles/global.css";
 const { title } = Astro.props;
-import { getSecret } from 'astro:env/server'
+import { getSecret } from "astro:env/server";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Provida Sevilla - {title}</title>
-</head>
-<body class="font-sans bg-gray-100">
-  <Header />
-  <main class="bg-gray-100 w-full">
-    <slot />
-  </main>
-  <Footer />
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/logo.ico"/>
+    <meta
+      name="description"
+      content="Provida Sevilla - Organización sin ánimo de lucro dedicada a la defensa de la vida humana desde la concepción. Ofrecemos apoyo, recursos y educación para mujeres embarazadas y familias en Sevilla."
+    />
+    <title>Provida Sevilla - {title}</title>
+  </head>
+  <body class="font-sans bg-gray-100">
+    <Header />
+    <main class="bg-gray-100 w-full">
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
