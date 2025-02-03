@@ -3,52 +3,147 @@ import { getSecret } from "astro:env/server";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "Donativos";
+
+const impactStats = [
+  { number: "100+", label: "Madres ayudadas al año" },
+  { number: "1000+", label: "Bebés beneficiados" },
+  { number: "40+", label: "Voluntarios activos" },
+  { number: "25+", label: "Años de experiencia" },
+];
 ---
 
 <BaseLayout title={title}>
-  <!-- Sección Principal -->
-  <section class="container mx-auto px-4 mb-16">
-    <h1 class="text-4xl font-bold text-center text-blue-500 mb-8">
-      Apoya Nuestra Causa
-    </h1>
-    <p class="text-lg text-gray-700 text-center mb-8">
-      Para atender a las madres y bebés de nuestro centro de acogida necesitamos
-      vuestro donativo por pequeño que sea.
-    </p>
-    <p class="text-lg text-gray-700 text-center mb-8">
-      Puedes hacer tu aportación económica en las siguientes cuentas corrientes:
-    </p>
-    <ul class="list-disc pl-6 text-gray-700 text-center mb-8">
-      <li>
-        <strong>TITULAR:</strong>
-        {getSecret("TITULAR_CUENTA_BANCARIA")}
-      </li>
-      <li>{getSecret("NUMERO_CUENTA_BANCARIA")}</li>
-      <li>{getSecret("NUMERO_CUENTA_BANCARIA2")}</li>
-    </ul>
-    <p class="text-lg text-gray-700 text-center mb-8">
-      También puedes visitarnos y traer tu donativo en mano.
-    </p>
-    <p class="text-lg text-gray-700 text-center mb-8">
-      Como asociación declarada de utilidad pública, todos los donativos gozan
-      de los beneficios fiscales previstos por la Ley 49/2002 de Mecenazgo de 23
-      de diciembre.
-    </p>
+  <!-- Hero Section -->
+  <section class="relative py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-blue-600 mb-6">
+          Tu Ayuda Transforma Vidas
+        </h1>
+        <p class="text-xl text-gray-700 leading-relaxed mb-8">
+          Cada donación, por pequeña que sea, nos ayuda a seguir apoyando a
+          madres y bebés que necesitan nuestra ayuda.
+        </p>
+        <a
+          href="#donar"
+          class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300 inline-block"
+        >
+          Hacer un Donativo
+        </a>
+      </div>
+    </div>
   </section>
 
-  <!-- Llamada a la Acción -->
-  <section class="container mx-auto px-4">
-    <div class="bg-white p-8 rounded-lg shadow-md text-center">
-      <h2 class="text-3xl font-bold text-gray-800 mb-6">Haz tu Donativo Hoy</h2>
-      <p class="text-gray-700 mb-6">
-        Tu contribución, por pequeña que sea, marca una gran diferencia en la
-        vida de madres y bebés.
+  <!-- Impact Stats -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+        {
+          impactStats.map((stat) => (
+            <div class="text-center">
+              <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
+                {stat.number}
+              </div>
+              <div class="text-gray-600">{stat.label}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Donation Options -->
+  <section id="donar" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+        Formas de Colaborar
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div
+          class="bg-white rounded-xl shadow-md p-8 hover:shadow-lg transition duration-300"
+        >
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+            Transferencia Bancaria
+          </h3>
+          <div class="space-y-4 mb-6">
+            <p class="font-medium text-gray-700">
+              <strong>TITULAR:</strong>
+              <br />
+              <span class="font-normal"
+                >{getSecret("TITULAR_CUENTA_BANCARIA")}</span
+              >
+            </p>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p class="font-mono text-gray-600">
+                {getSecret("NUMERO_CUENTA_BANCARIA2")}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-xl shadow-md p-8 hover:shadow-lg transition duration-300"
+        >
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+            Donativo Presencial
+          </h3>
+          <p class="text-gray-600 mb-6">
+            También puedes visitarnos y realizar tu donativo en persona. Nuestro
+            equipo estará encantado de atenderte y mostrarte el impacto de tu
+            ayuda.
+          </p>
+          <a
+            href="/contacto"
+            class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center"
+          >
+            Ver ubicación y horarios
+            <svg
+              class="w-4 h-4 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tax Benefits -->
+  <section class="py-16">
+    <div class="container mx-auto px-4 max-w-3xl text-center">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+        Beneficios Fiscales
+      </h2>
+      <p class="text-gray-700">
+        Como asociación declarada de utilidad pública, todos los donativos gozan
+        de los beneficios fiscales previstos por la Ley 49/2002 de Mecenazgo de
+        23 de diciembre.
+      </p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6">
+        Tu Ayuda es Fundamental
+      </h2>
+      <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        Cada donación nos permite seguir apoyando a madres y bebés que necesitan
+        nuestra ayuda. Juntos podemos hacer la diferencia.
       </p>
       <a
         href="/contacto"
-        class="bg-blue-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-600 transition inline-block"
+        class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300 inline-block"
       >
-        Contáctenos para más información
+        Contacta con Nosotros
       </a>
     </div>
   </section>
