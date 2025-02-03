@@ -3,37 +3,52 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
 import articulos from "../assets/articulos.json";
 import { Image } from "astro:assets";
+
+const title = "Blog - Provida Sevilla";
+const description = "Artículos y noticias sobre la defensa de la vida y apoyo a madres embarazadas - Provida Sevilla";
 ---
 
-<BaseLayout>
-  <div
-    class="container mx-auto px-4 mb-16 grid grid-cols-1 md:grid-cols-2 gap-8"
-  >
-    {
-      articulos.map((articulo) => (
-        <a href={`/blog/${articulo.titulo}`}>
-          <div
-            class="bg-white shadow-md rounded-lg p-8 mb-8 grid grid-rows-2 h-96
-           w-full hover:shadow-lg hover:bg-slate-200 transition"
-          >
-            <Image
-              src={articulo.imagen}
-              alt={articulo.titulo}
-              width={50}
-              height={50}
-              class="h-full w-full object-cover"
-            />
-            <div class="text-lg text-gray-700 overflow-hidden">
-              <h2 class="text-2xl font-bold">{articulo.titulo}</h2>
-              <span class="text-gray-700">
-                {articulo.descripcion.split("\n").map((p) => (
-                  <p>{p}</p>
-                ))}
-              </span>
-            </div>
-          </div>
-        </a>
-      ))
-    }
+<BaseLayout title={title} description={description}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Nuestro Blog</h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Descubre artículos sobre la defensa de la vida y cómo apoyamos a madres embarazadas
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        articulos.map((articulo) => (
+          <article class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <a href={`/blog/${articulo.titulo}`} class="block h-full">
+              <div class="aspect-w-16 aspect-h-9">
+                <Image
+                  src={articulo.imagen}
+                  alt={articulo.titulo}
+                  width={800}
+                  height={450}
+                  class="object-cover w-full h-full"
+                />
+              </div>
+              <div class="p-6">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3 line-clamp-2">
+                  {articulo.titulo}
+                </h2>
+                <div class="text-gray-600 line-clamp-3">
+                  {articulo.descripcion.split("\n")[0]}
+                </div>
+                <div class="mt-4 flex items-center text-blue-500 font-semibold">
+                  Leer más
+                  <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </article>
+        ))
+      }
+    </div>
   </div>
 </BaseLayout>

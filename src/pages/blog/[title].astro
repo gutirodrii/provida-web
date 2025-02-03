@@ -2,6 +2,8 @@
 import type { GetStaticPaths } from "astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import articulos from "../../assets/articulos.json";
+import { Image } from "astro:assets";
+
 export const getStaticPaths = (() => {
   const paths = articulos.map((articulo) => ({
     params: { title: articulo.titulo },
@@ -9,26 +11,83 @@ export const getStaticPaths = (() => {
   }));
   return paths;
 }) satisfies GetStaticPaths;
-import "../../styles/global.css";
-import { Image } from "astro:assets";
+
+const article = Astro.props;
+const { titulo, descripcion, imagen } = article;
+
+// Format date if available, otherwise use a default date
+const publishDate = article.fecha || new Date().toISOString();
+
+// Generate structured data for SEO
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": titulo,
+  "image": imagen,
+  "datePublished": publishDate,
+  "articleBody": descripcion,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Provida Sevilla",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/logo-provida.webp"
+    }
+  }
+};
 ---
 
-<BaseLayout title={Astro.params.title}>
-  <div class="flex flex-col items-center justify-center h-full">
-    <Image
-      src={Astro.props.imagen}
-      alt={Astro.props.titulo}
-      width={100}
-      height={100}
-      class={"h-64 w-full object-cover"}
-    />
-    <div class="py-16 px-16 md:px-32 lg:px-64">
-      <h1 class="text-3xl font-bold mb-4">
-        {Astro.props.titulo}
+<BaseLayout 
+  title={`${titulo} | Blog Provida Sevilla`}
+  description={descripcion.split("\n")[0]}
+  image={imagen}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="mb-8">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        {titulo}
       </h1>
-      <span class="text-lg">
-        {Astro.props.descripcion.split("\n").map((p) => <p>{p}</p>)}
-      </span>
+      <div class="flex items-center text-gray-600 mb-8">
+        <time datetime={publishDate}>
+          {new Date(publishDate).toLocaleDateString('es-ES', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </time>
+      </div>
+    </header>
+
+    <div class="prose prose-lg max-w-none">
+      <div class="aspect-w-16 aspect-h-9 mb-8 rounded-lg overflow-hidden">
+        <Image
+          src={imagen}
+          alt={titulo}
+          width={1200}
+          height={675}
+          class="object-cover w-full h-full"
+        />
+      </div>
+
+      <div class="text-gray-700 leading-relaxed space-y-6">
+        {descripcion.split("\n").map((p) => (
+          <p>{p}</p>
+        ))}
+      </div>
     </div>
-  </div>
+
+    <div class="mt-12 pt-8 border-t border-gray-200">
+      <a
+        href="/blog"
+        class="inline-flex items-center text-blue-600 hover:text-blue-800"
+      >
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Volver al Blog
+      </a>
+    </div>
+  </article>
 </BaseLayout>
