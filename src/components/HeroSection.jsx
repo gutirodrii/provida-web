@@ -2,7 +2,7 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <section className="relative -top-16 h-120">
+    <section className="relative h-120">
       <img
         src="/images/hero-bebe.webp"
         alt="Hero Image"
@@ -19,7 +19,7 @@ const HeroSection = () => {
           </p>
           <a
             href="/apoyo-embarazadas"
-            className="bg-blue-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition"
+            className="bg-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition"
           >
             ¿Necesitas ayuda?
           </a>

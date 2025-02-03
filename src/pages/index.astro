@@ -2,14 +2,144 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroSection from "../components/HeroSection.jsx";
 import CallToAction from "../components/CallToAction.jsx";
-import '../styles/global.css'
+import '../styles/global.css';
+import articulos from "../assets/articulos.json"
 const title = "Inicio";
+
+const services = [
+  {
+    title: "Apoyo a Embarazadas",
+    description: "Acompañamiento y ayuda integral durante el embarazo",
+    icon: "👶",
+    link: "/apoyo-embarazadas"
+  },
+  {
+    title: "Ayuda Psicológica",
+    description: "Atención profesional y apoyo emocional",
+    icon: "🧠",
+    link: "/apoyo-embarazadas#ayuda"
+  },
+  {
+    title: "Asistencia Material",
+    description: "Recursos básicos para madres y bebés",
+    icon: "🎀",
+    link: "/apoyo-embarazadas#ayuda"
+  }
+];
+
+const stats = [
+  { number: "25+", label: "Años de experiencia" },
+  { number: "1000+", label: "Vidas ayudadas" },
+  { number: "40+", label: "Voluntarios activos" },
+  { number: "100%", label: "Compromiso" }
+];
 ---
 
 <BaseLayout title={title}>
-  <!-- Sección Hero -->
   <HeroSection />
-
-  <!-- Llamada a la Acción -->
+  
+  <!-- Estadísticas -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+        {stats.map(stat => (
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
+              {stat.number}
+            </div>
+            <div class="text-gray-600">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
   <CallToAction />
+
+  <!-- Servicios Principales -->
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
+        ¿Cómo Podemos Ayudarte?
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {services.map(service => (
+          <a href={service.link} class="group">
+            <div class="bg-white rounded-xl shadow-md p-8 hover:shadow-lg transition duration-300 h-full">
+              <div class="text-4xl mb-4 group-hover:scale-110 transition duration-300">
+                {service.icon}
+              </div>
+              <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                {service.title}
+              </h3>
+              <p class="text-gray-600">
+                {service.description}
+              </p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonios -->
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
+        Testimonios
+      </h2>
+      <div class="max-w-4xl mx-auto">
+        <blockquote class="bg-white rounded-xl p-8 text-center">
+          <p class="text-xl text-gray-700 italic mb-6">
+            "Gracias a Provida encontré el apoyo y la fuerza que necesitaba en un momento crucial de mi vida."
+          </p>
+          <footer class="text-gray-600">
+            - María, madre de Pablo
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Blog Preview -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
+          Últimas Noticias
+        </h2>
+        <a href="/blog" class="text-blue-600 hover:text-blue-800 font-semibold inline-flex items-center">
+          Ver todas
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {articulos.slice(-3).map((articulo) => (
+          <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+            <img 
+              src={articulo.imagen}
+              alt={articulo.titulo}
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                {articulo.titulo}
+              </h3>
+              <p class="text-gray-600 mb-4 truncate">
+                {articulo.descripcion}
+              </p>
+              <a href="/blog" class="text-blue-600 hover:text-blue-800 font-medium">
+                Leer más →
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>
